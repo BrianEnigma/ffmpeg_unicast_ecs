@@ -36,7 +36,7 @@ Building the image is a three stage process:
 
 Both stages are fully automated for you behind a single `make` command. First you'll build a docker image with a full AWS Linux base plus a bunch of build tools. Next, you'll execute that build container, using it to build ffmpeg against all the standard AWS Linux system libraries. Finally, you'll build a lightweight container of just a skeletal OS, ffmpeg, and your video.
 
-I've provided a sample video with 30 seconds of colorbars and a burned-in timecode. Feel free to overwrite `video.ts` with a video of your choosing. It needs to be in a transport stream container.
+I've provided a sample 720p30 video with 30 seconds of colorbars and a burned-in timecode. Feel free to overwrite `video.ts` with a video of your choosing. It needs to be in a transport stream container.
 
 
 
@@ -68,4 +68,4 @@ When the above has completed successfully, you can push it to your Elastic Conta
 
 **Q: Why do you waste space on putting the video in the container? Why not just load it from S3 or something?**
 
-A: I wanted to keep things as easy and turnkey as possible. Putting all resources into the container image means that there is no special role or bucket configuration.
+A: I wanted to keep things as easy and turnkey as possible. Putting all resources into the container image means that there is no special role or bucket permissions.
