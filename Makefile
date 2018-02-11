@@ -39,7 +39,7 @@ interactive-run:
 	docker run --name $(FFMPEG_CONTAINER_NAME) --rm -v "$(HERE)/build:/build" -t -i $(FFMPEG_CONTAINER_NAME) /bin/bash
 
 test:
-	docker run --name $(FFMPEG_CONTAINER_NAME) --rm -v "$(HERE)/build:/build" -t -i $(FFMPEG_CONTAINER_NAME) bash -c "/usr/bin/playout.sh 10.0.1.15 5001"
+	docker run --name $(FFMPEG_CONTAINER_NAME) --rm -v "$(HERE)/build:/build" -t -i $(FFMPEG_CONTAINER_NAME) -e DEST_IP=10.0.1.15 -e DEST_PORT=5001
 
 push:
 	aws --profile $(AWS_PROFILE) ecr get-login --no-include-email --region $(AWS_REGION) > ecr_login.sh
