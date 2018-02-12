@@ -12,7 +12,7 @@ What I really want is a Docker container, with everything fully self-contained â
 
 The [ffmpeg_unicast_ecs](https://github.com/BrianEnigma/ffmpeg_unicast_ecs) project encapsulates ffmpeg and a playout video into a fully self-contained Docker image. It streams the looped video using UDP unicast to a destination (IP address and port) that you choose at runtime.
 
-This project is copyright 2018 by Brian Enigma and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You can use it for personal projects as well as commercially, as long as attribution is retained. Find it on GitHub: <https://github.com/BrianEnigma/ffmpeg_unicast_ecs>
+This project is copyright 2018 by [Brian Enigma](https://github.com/BrianEnigma) and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You can use it for personal projects as well as commercially, as long as attribution is retained. Find it on GitHub: <https://github.com/BrianEnigma/ffmpeg_unicast_ecs>
 
 ## Prerequisites
 
