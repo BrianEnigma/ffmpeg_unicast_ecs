@@ -58,11 +58,27 @@ When the above has completed successfully, you can push it to your Elastic Conta
 
 ## Running the Image
 
-(todo)
+Once the image is pushed to the registry, you can then use it to launch an instance:
+
+
 
 ![deployment](images/deploy.png)
 
-(todo)
+
+
+The easiest way to do this is with the newer “[Fargate](https://aws.amazon.com/about-aws/whats-new/2017/11/introducing-aws-fargate-a-technology-to-run-containers-without-managing-infrastructure/)” version of ECS. With Fargate, you're only dealing with the image instances, not managing the underlying EC2 instance. At the time of writing, this service is only available in us-east-2 (N. Virginia). So open your AWS console and switch it to us-east-2.
+
+Use the ECS console to **create a new cluster**. Select Fargate-style. (If you don't see Fargate, then double-check that your region is N. Virginia.) Give the cluster a name and check the “Create VPC” checkbox, using default VPC settings. Wait for the cluster to spin up.
+
+Use the left-column navigation to go to Task Definitions and **create a new task definition**. Make it a Fargate task. You can use defaults or low-end settings (CPU/memory) for most everything. Click on the “Add Container” button to bring up a container dialog. Use this to point at your Elastic Container Registry (ECR) URI.
+
+Finally, you will want to **run an instance of the task**. Go to Clusters in the navigation, pick your ffmpeg cluster, and go to the “Tasks” tab. Click “Run new Task.” You can basically use the defaults. Be sure to connect it to your public VPC and subnet. Open the “Advanced Options” section, then within that, open the “Container Overrides” section. Click “Add Environment Variables” twice and add your destination environment variables, `DEST_IP` and `DEST_PORT`:
+
+![container_overrides](images/container_overrides.png)
+
+Run the task, and you should be good to go.
+
+When you're done with the video stream, don't forget to stop the container.
 
 ## FAQ
 
